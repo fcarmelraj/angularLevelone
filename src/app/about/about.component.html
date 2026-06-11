@@ -1,0 +1,71 @@
+<p>about works!</p>
+
+<ul>
+  <ng-container *ngFor="let item of aboutList">
+    <li *ngIf="item.age >= 30; else noData">
+      {{ item.name }}, {{ item.age }}
+    </li>
+  </ng-container>
+
+  <ng-template #noData>
+    <li>No data available</li>
+  </ng-template>
+</ul>
+
+<!-- <ul *ngIf="aboutList.length > 0; else noData">
+  <li *ngFor="let item of aboutList">
+    {{ item.name }}, {{ item.age }}
+  </li>
+</ul>
+
+<ng-template #noData>
+  <li>No data available</li>
+</ng-template> -->
+
+
+<div *ngIf="true" style="border: 1px solid red;">
+    This is ngif statement
+</div>
+
+<!-- <div *ngIf="false; else template2" style="border: 1px solid red;">
+    <ng-container #template1>
+        <p>Template 1</p>
+    </ng-container>
+    <ng-template #template2>
+        <p>Template 2</p>
+    </ng-template>
+</div> -->
+
+<h3>Main block (if and else)</h3>
+<div *ngIf="true; else template2" style="border: 1px solid red;">
+  <p>Template 1</p>
+</div>
+
+<!-- Fallback template MUST be outside -->
+<ng-template #template2>
+  <div style="border: 1px solid blue;">
+    <p>Template 2</p>
+  </div>
+</ng-template>
+-----------------------------
+<ng-container *ngIf="true; then template4 else template5"></ng-container>
+<ng-template #template4>
+  <div style="border: 1px solid green;">
+    <p>Template 4</p>
+  </div>
+</ng-template>
+<ng-template #template5>
+  <div style="border: 1px solid orange;">
+    <p>Template 5</p>
+  </div>
+</ng-template>
+<h3>Switch Statement</h3>
+<div [ngSwitch]="status">
+
+  <p *ngSwitchCase="1">One</p>
+
+  <p *ngSwitchCase="2">Two</p>
+
+  <p style="color: red;" *ngSwitchDefault>Default</p>
+
+</div>

@@ -1,0 +1,50 @@
+<p>User Details</p>
+<h3>Display data in a table</h3>
+<table>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Age</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let person of peopleList; first as isFirst; last as isLast; even as isEven; odd as isOdd; let i = index" [ngClass]="{ 'odd-row': isOdd, 'even-row': isEven }">
+        <td>{{ i + 1 }}</td>
+        <td>{{ person.name }}</td>
+        <td>{{ person.age }}</td>
+        <td>
+            isFirst:{{isFirst}}&nbsp;
+            isLast:{{isLast}}&nbsp;
+            isEven:{{isEven}}&nbsp;
+            isOdd:{{isOdd}}
+        </td>
+    </tr>
+</table>
+<!-- [ngClass]="{ 'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0 }" -->
+
+<h2>user details order track by</h2>
+<!-- 
+If we try to add trackby won't allow to change in all the rows.
+ It allow to chnage only the particular rows. -->
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Department</th>
+        <th>Salary</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employeeList; trackBy: trackByName">
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.code }}</td>
+            <td>{{ employee.gender }}</td>
+            <td>{{ employee.age }}</td>
+            <td>{{ employee.department }}</td>
+            <td>{{ employee.salary }}</td>
+        </tr>
+        <tr *ngIf="employeeList.length === 0 || !employeeList">
+            <td colspan="6">No records found</td>
+        </tr>
+    </tbody>
+</table>

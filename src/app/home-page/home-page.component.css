@@ -1,0 +1,27 @@
+.active {
+  background-color: lightgreen;
+}
+
+.inactive {
+  background-color: lightgoldenrodyellow;
+}
+
+.same {
+  background-color: lightblue;
+}
+
+.colorRed{
+  color: red;
+}
+
+.borderClass{
+  border: 1px solid black;
+}
+
+.fontSize20{
+  font-size: 20px;
+}
+
+.colorItalic{
+  font-style: italic;
+}

@@ -1,0 +1,60 @@
+<p>home-page works!</p>
+<button (click)="showAlert($event)">Click Show Alert 1</button>
+<button (keydown.Enter)="showAlert($event)">Enter Show Alert 2</button>
+
+<h3>One way data binding</h3>
+<input type="text" value="{{firstName}}" />
+<input type="text" [value]="firstName" />
+<input type="text" [value]=firstName />
+<div>{{ firstName }}</div>
+<h3>Two way data binding</h3>
+<input type="text" [(ngModel)]="firstName" />
+<p>Input value: {{ firstName }}</p>
+<h3>Style binding</h3>
+<div [style.color]='"red"'>style binding</div>
+<div [style.color]="textColor">This is a styled paragraph.</div>
+<div [ngStyle]="{ 'color': textColor, 'font-size': '18px', 'font-family': 'Arial', 'font-weight': 'bold' }">This is another styled paragraph.</div>
+<button [style.background-color]="isActive ? 'green' : 'gray'">
+  Submit
+</button>
+<div [style.font-size.px]="isActive? 20: 12">style binding is seted</div>
+<div [style.background-color]='"red"'>
+  style background color is seted
+</div>
+<div [style]="navStyle">
+  navStyle background color is seted
+</div>
+<h3>Class binding</h3>
+<div [class]='"active"'>
+    Class binding example:
+</div>
+<div [class.active]="isActive" [class.inactive]="!isActive">
+  This is a class-bound paragraph method1.
+</div>
+<div [class.same]="isActive">
+  This is a class-bound paragraph method2.
+</div>
+<div [ngClass]="isActive ? 'inactive' : 'same'">
+  This is a class-bound paragraph method3.
+</div>
+<div [ngClass]="{'active': isActive, 'colorRed': isActive, 'borderClass': !isBorder}">
+  This is a class-bound paragraph method5.
+</div>
+<div [ngClass]="'active inactive'">
+  This is a class-bound paragraph method6.
+</div>
+<div [ngClass]="['active', 'inactive']">
+  This is a class-bound paragraph method7.
+</div>
+<div [class]="navClass">
+  This is a class-bound paragraph method8.
+</div>
+<h3>Attribute binding</h3>
+<button [attr.title]="'This is a tooltip'">Just button</button>
+<input type="text" [attr.placeholder]="placeHolder" />
+
+<h3 appUpdateColor>Custome Attribut Direcive</h3>
+
+<input appShowPassword />
+
+

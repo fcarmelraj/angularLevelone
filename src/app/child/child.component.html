@@ -1,0 +1,11 @@
+<div style="border:2px dotted palevioletred"><h3>This is child</h3>
+<p>Title from parent component: {{ title }}</p>
+<ul>
+  <li *ngFor="let item of list">
+    {{ item }}
+  </li>
+</ul>
+<div>Random number from parent component: {{ number }}</div>
+<button (click)="sendMessageToParent()">Send message to parent</button>
+<app-grand-child></app-grand-child>
+</div>
