@@ -1,0 +1,9 @@
+<p>sort-list works!</p>
+<div *ngFor="let row of rows | keyvalue">
+  <p>{{row.key}}: {{row.value}}</p>
+</div>
+<h3>Show data in JSON format</h3>
+<div *ngFor="let row of rows | keyvalue">  
+   {{row | json}}
+</div>
+

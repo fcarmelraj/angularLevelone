@@ -1,0 +1,41 @@
+<p>reactive-form works!</p>
+<!-- Reactive Form -->
+<form novalidate autocomplete="off" [formGroup]="signupForm" (ngSubmit)="save()">
+    <fieldset>
+        <div [ngClass]="{'has-error': signupForm.get('firstName')?.touched || (signupForm.get('firstName')?.dirty && signupForm.get('firstName')?.invalid)}">
+            <label for="firstName">First Name</label>
+            <input id="firstName" type="text" name="firstName" formControlName="firstName" />
+            <span *ngIf="signupForm.get('firstName')?.invalid && (signupForm.get('firstName')?.touched || signupForm.get('firstName')?.dirty)">
+                <span *ngIf="signupForm.get('firstName')?.errors?.['required']" class="error">First name is required</span>
+            </span>
+        </div>
+
+        <div [ngClass]="{'has-error': signupForm.get('lastName')?.touched || (signupForm.get('lastName')?.dirty && signupForm.get('lastName')?.invalid)}">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" type="text" name="lastName" formControlName="lastName" />
+            <span *ngIf="signupForm.get('lastName')?.invalid && (signupForm.get('lastName')?.touched || signupForm.get('lastName')?.dirty)">
+                <span *ngIf="signupForm.get('lastName')?.errors?.['required']" class="error">Last name is required</span>
+            </span>
+        </div>
+
+        <div [ngClass]="{'has-error': signupForm.get('email')?.touched || (signupForm.get('email')?.dirty && signupForm.get('email')?.invalid)}">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" formControlName="email" />
+            <span *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)">
+                <span *ngIf="signupForm.get('email')?.errors?.['required']" class="error">Email is required</span>
+                <span *ngIf="signupForm.get('email')?.errors?.['pattern']" class="error">Email must be a valid format</span>
+            </span>
+        </div>
+
+        <div [ngClass]="{'has-error': signupForm.get('password')?.touched || (signupForm.get('password')?.dirty && signupForm.get('password')?.invalid)}">
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" formControlName="password" />
+            <span *ngIf="signupForm.get('password')?.invalid && (signupForm.get('password')?.touched || signupForm.get('password')?.dirty)">
+                <span *ngIf="signupForm.get('password')?.errors?.['required']" class="error">Password is required</span>
+                <span *ngIf="signupForm.get('password')?.errors?.['minlength']" class="error">Password must be at least 6 characters</span>
+            </span>
+        </div>
+
+        <button type="submit" [disabled]="signupForm.invalid">Submit</button>
+    </fieldset>
+</form>

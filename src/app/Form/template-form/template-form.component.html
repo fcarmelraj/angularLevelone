@@ -1,0 +1,44 @@
+<p>template-form works!</p>
+<!-- tenplate driven form -->
+<form class="form-horizontal" #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+    <fieldset>
+        <!-- First Name -->
+        <div [ngClass]="{'has-error': (firstName.touched || firstName.dirty) && firstName.invalid}">
+            <label class="col-md-2" for="firstName">First Name</label>
+            <div class="col-md-10">
+                <input id="firstName" type="text" required name="firstName" [(ngModel)]="user.firstName" #firstName="ngModel" />
+                <span *ngIf="firstName.errors?.['required'] && (firstName.touched || firstName.dirty)" class="error">First name is required</span>
+                <!-- <span *ngIf="firstName.errors?.['minlength'] && (firstName.touched || firstName.dirty)" class="error">First name must be at least 3 characters</span> -->
+            </div>
+        </div>
+        <!-- Last Name -->
+        <div [ngClass]="{'has-error': (lastName.touched || lastName.dirty) && lastName.invalid}">
+            <label class="col-md-2" for="lastName">Last Name</label>
+            <div class="col-md-10">
+                <input id="lastName" type="text" required name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel" />
+                <span *ngIf="lastName.errors?.['required'] && (lastName.touched || lastName.dirty)" class="error">Last name is required</span>
+                <!-- <span *ngIf="lastName.errors?.['minlength'] && (lastName.touched || lastName.dirty)" class="error">Last name must be at least 3 characters</span> -->
+            </div>
+        </div>
+        <!-- Email -->
+        <div [ngClass]="{'has-error': (email.touched || email.dirty) && email.invalid}">
+            <label class="col-md-2" for="email">Email</label>
+            <div class="col-md-10">
+                <input id="email" type="email" required name="email" [(ngModel)]="user.email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+                <span *ngIf="email.errors?.['required'] && (email.touched || email.dirty)" class="error">Email is required</span>
+                <!-- <span *ngIf="email.errors?.['email'] && (email.touched || email.dirty)" class="error">Please enter a valid email</span> -->
+                <span *ngIf="email.errors?.['pattern'] && (email.touched || email.dirty)" class="error">Email must follow the format user@example.com</span>
+            </div>
+        </div>
+        <!-- Password -->
+        <div [ngClass]="{'has-error': (password.touched || password.dirty) && password.invalid}">
+            <label class="col-md-2" for="password">Password</label>
+            <div class="col-md-10">
+                <input id="password" type="password" required minlength="6" name="password" [(ngModel)]="user.password" #password="ngModel" />
+                <span *ngIf="password.errors?.['required'] && (password.touched || password.dirty)" class="error">Password is required</span>
+                <span *ngIf="password.errors?.['minlength'] && (password.touched || password.dirty)" class="error">Password must be at least 6 characters</span>
+            </div>
+        </div>
+        <button type="submit" [disabled]="!signupForm.valid">Submit</button>
+    </fieldset>
+</form>

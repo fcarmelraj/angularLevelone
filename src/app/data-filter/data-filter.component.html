@@ -1,0 +1,8 @@
+<p>data-filter works!</p>
+<input type="text" placeholder="Filter by name..." [(ngModel)]="filterBy" />
+<div *ngFor="let item of userList | myFilter: filterBy:'name'">
+  <ul>
+    <li>{{item.name}}</li>
+  </ul>
+
+</div>

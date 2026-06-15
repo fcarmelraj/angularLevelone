@@ -1,0 +1,26 @@
+<p>custom-validation works!</p>
+<form [formGroup]="signupForm" (ngSubmit)="save()" novalidate>
+    <div [ngClass]="{'has-error': signupForm.get('firstName')?.invalid && (signupForm.get('firstName')?.touched || signupForm.get('firstName')?.dirty)}">
+        <label for="firstName">First Name</label>
+        <input id="firstName" type="text" formControlName="firstName" />
+        <span *ngIf="signupForm.get('firstName')?.invalid && (signupForm.get('firstName')?.touched || signupForm.get('firstName')?.dirty)">
+            <span *ngIf="signupForm.get('firstName')?.errors?.['required']" class="error">First name is required</span>
+        </span>
+    </div>
+    <div [ngClass]="{'has-error': signupForm.get('lastName')?.invalid && (signupForm.get('lastName')?.touched || signupForm.get('lastName')?.dirty)}">
+        <label for="lastName">Last Name</label>
+        <input id="lastName" type="text" formControlName="lastName" />
+        <span *ngIf="signupForm.get('lastName')?.invalid && (signupForm.get('lastName')?.touched || signupForm.get('lastName')?.dirty)">
+            <span *ngIf="signupForm.get('lastName')?.errors?.['required']" class="error">Last name is required</span>
+        </span>
+    </div>
+    <div [ngClass]="{'has-error': signupForm.get('department')?.invalid && (signupForm.get('department')?.touched || signupForm.get('department')?.dirty)}">
+        <label for="department">Department</label>
+        <input id="department" type="text" formControlName="department" />
+        <span *ngIf="signupForm.get('department')?.invalid && (signupForm.get('department')?.touched || signupForm.get('department')?.dirty)">
+            <span *ngIf="signupForm.get('department')?.errors?.['required']" class="error">Department is required</span>
+        <span *ngIf="signupForm.get('department')?.errors?.['forBiddenWods']" class="error">"{{ signupForm.get('department')?.value }}" is a forbidden word. Not allowed!</span>
+        </span>
+    </div>
+    <button type="submit" [disabled]="signupForm.invalid">Submit</button>
+</form>

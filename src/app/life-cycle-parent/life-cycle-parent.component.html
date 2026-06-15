@@ -1,0 +1,5 @@
+<p>life-cycle-parent works!</p>
+<button (click)="status = !status">{{status?'Destroy Child':'Create Child'}}</button>
+<div *ngIf="status">
+<app-life-cycle-child [prop]="prop"></app-life-cycle-child>
+</div>

@@ -1,0 +1,36 @@
+<p>conditional-validation works!</p>
+<form [formGroup]="addressForm" (ngSubmit)="save()" novalidate>
+    <div [ngClass]="{'has-error': addressForm.get('street')?.invalid && (addressForm.get('street')?.dirty || addressForm.get('street')?.touched)}">
+        <label for="street">Street</label>
+        <input id="street" type="text" formControlName="street" />
+        <span *ngIf="addressForm.get('street')?.invalid && (addressForm.get('street')?.dirty || addressForm.get('street')?.touched)">
+            <span *ngIf="addressForm.get('street')?.errors?.['required']" class="error">Street is required</span>
+        </span>
+    </div>
+
+    <div [ngClass]="{'has-error': addressForm.get('country')?.invalid && (addressForm.get('country')?.dirty || addressForm.get('country')?.touched)}">
+        <label for="country">Country</label>
+        <select id="country" formControlName="country">
+            <option value="US">US</option>
+            <option value="CA">CA</option>
+        </select>
+    </div>
+
+    <div [ngClass]="{'has-error': addressForm.get('postalCode')?.invalid && (addressForm.get('postalCode')?.dirty || addressForm.get('postalCode')?.touched)}">
+        <label for="postalCode">Postal Code</label>
+        <input id="postalCode" type="text" formControlName="postalCode" />
+        <span *ngIf="addressForm.get('postalCode')?.invalid && (addressForm.get('postalCode')?.dirty || addressForm.get('postalCode')?.touched)">
+            <span *ngIf="addressForm.get('postalCode')?.errors?.['required']" class="error">Postal code is required</span>
+            <span *ngIf="addressForm.get('postalCode')?.errors?.['pattern']" class="error">
+                <ng-container *ngIf="addressForm.get('country')?.value === 'US'">
+                    Postal code must be 1 to 4 digits
+                </ng-container>
+                <ng-container *ngIf="addressForm.get('country')?.value === 'CA'">
+                    Postal code must be 3 letters followed by 3 digits
+                </ng-container>
+            </span>
+        </span>
+    </div>
+
+    <button type="submit" [disabled]="addressForm.invalid">Submit</button>
+</form>
