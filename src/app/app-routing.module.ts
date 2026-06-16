@@ -59,9 +59,11 @@ const routes: Routes = [
   {path: 'product', component: ProductComponent},
   {path: 'product-detail/:id', component: ProductDetailComponent},
   {path: 'main-page', component: MainPageComponent, 
-    children:[ {path: 'sub-page-one', component: SubPageOneComponent},
-  {path: 'sub-page-two', component: SubPageTwoComponent},
-  {path: 'sub-page-three', component: SubPageThreeComponent},]}, 
+  children:[ 
+    {path: 'sub-page-one', component: SubPageOneComponent},
+    {path: 'sub-page-two', component: SubPageTwoComponent},
+    {path: 'sub-page-three', component: SubPageThreeComponent},
+          ]}, 
   {path:'**', component:PageNoTFound},
 ];
 
