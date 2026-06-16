@@ -31,6 +31,7 @@ import {MainPageComponent} from './main-page/main-page.component';
 import { SubPageOneComponent } from './sub-page-one/sub-page-one.component';
 import { SubPageTwoComponent } from './sub-page-two/sub-page-two.component';
 import { SubPageThreeComponent } from './sub-page-three/sub-page-three.component';
+import {GetPostApiComponent} from './get-post-api/get-post-api.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/home', pathMatch:'full'},
@@ -64,6 +65,7 @@ const routes: Routes = [
     {path: 'sub-page-two', component: SubPageTwoComponent},
     {path: 'sub-page-three', component: SubPageThreeComponent},
           ]}, 
+  {path:'post', component: GetPostApiComponent},
   {path:'**', component:PageNoTFound},
 ];
 

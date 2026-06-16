@@ -1,0 +1,10 @@
+<p>get-post-api works!</p>
+<ul >
+    <li *ngFor="let item of post">
+        {{item.body}}
+    </li>
+</ul>
+<div *ngIf="loading">
+  Loading post...
+</div>
+<h2>Load Local Json Data</h2>

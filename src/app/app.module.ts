@@ -59,6 +59,8 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { SubPageOneComponent } from './sub-page-one/sub-page-one.component';
 import { SubPageTwoComponent } from './sub-page-two/sub-page-two.component';
 import { SubPageThreeComponent } from './sub-page-three/sub-page-three.component';
+import { GetPostApiComponent } from './get-post-api/get-post-api.component';
+import { LocalJsonDataComponent } from './local-json-data/local-json-data.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +115,9 @@ import { SubPageThreeComponent } from './sub-page-three/sub-page-three.component
     MainPageComponent,
     SubPageOneComponent,
     SubPageTwoComponent,
-    SubPageThreeComponent
+    SubPageThreeComponent,
+    GetPostApiComponent,
+    LocalJsonDataComponent
   ],
   imports: [
     BrowserModule,
