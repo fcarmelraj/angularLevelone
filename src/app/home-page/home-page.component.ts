@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
+import { BorderStandAloneDirective } from '../Directive/app.standalone.directive';
 @Component({
   selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
+  templateUrl: './home-page.component.html',  
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {

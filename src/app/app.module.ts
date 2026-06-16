@@ -50,7 +50,15 @@ import {TemplateFormOneComponent} from "./Form/template-form-one/template-form-o
 import { CustomValidationComponent } from './Form/custom-validation/custom-validation.component';
 import { ConditionalValidationComponent } from './Form/conditional-validation/conditional-validation.component';
 import { CustomDirectiveValidationComponent } from './Form/custom-directive-validation/custom-directive-validation.component';
-import {ErrorComponentOne} from './utils/error.component'; 
+import { ErrorComponentOne } from './utils/error.component'; 
+import { BorderStandAloneDirective } from './Directive/app.standalone.directive';
+import { PageNoTFound } from './utils/noComponent';
+import { ProductComponent } from './product/product.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { SubPageOneComponent } from './sub-page-one/sub-page-one.component';
+import { SubPageTwoComponent } from './sub-page-two/sub-page-two.component';
+import { SubPageThreeComponent } from './sub-page-three/sub-page-three.component';
 
 @NgModule({
   declarations: [
@@ -98,14 +106,22 @@ import {ErrorComponentOne} from './utils/error.component';
     CustomValidationComponent,
     ConditionalValidationComponent,
     CustomDirectiveValidationComponent,
-    ErrorComponentOne
+    ErrorComponentOne,
+    PageNoTFound,
+    ProductComponent,
+    ProductDetailComponent,
+    MainPageComponent,
+    SubPageOneComponent,
+    SubPageTwoComponent,
+    SubPageThreeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BorderStandAloneDirective
   ],
   providers: [{provide:ErrorHandler, useClass: GlobalErrorHandlerComponent}, Car, Piston, FuelInjector, Engine, Fuel],
   bootstrap: [AppComponent]

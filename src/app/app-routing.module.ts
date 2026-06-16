@@ -24,9 +24,17 @@ import {TemplateFormOneComponent} from "./Form/template-form-one/template-form-o
 import {CustomValidationComponent} from './Form/custom-validation/custom-validation.component';
 import {ConditionalValidationComponent} from './Form/conditional-validation/conditional-validation.component';
 import {CustomDirectiveValidationComponent} from './Form/custom-directive-validation/custom-directive-validation.component';
+import {PageNoTFound} from './utils/noComponent';
+import {ProductComponent} from './product/product.component';
+import {ProductDetailComponent} from './product-detail/product-detail.component';
+import {MainPageComponent} from './main-page/main-page.component';
+import { SubPageOneComponent } from './sub-page-one/sub-page-one.component';
+import { SubPageTwoComponent } from './sub-page-two/sub-page-two.component';
+import { SubPageThreeComponent } from './sub-page-three/sub-page-three.component';
 
 const routes: Routes = [
-  {path: '', component: HomePageComponent },
+  {path:'', redirectTo:'/home', pathMatch:'full'},
+  {path: 'home', component: HomePageComponent },
   {path: 'about', component: AboutComponent },
   {path: 'contact', component: ContactComponent },
   {path: 'self', component: SelfComponent},
@@ -47,7 +55,14 @@ const routes: Routes = [
   {path: 'reactiveFormOne', component: TemplateFormOneComponent},
   {path: 'customValidation', component:CustomValidationComponent},
   {path: 'consitionalValidation', component: ConditionalValidationComponent},
-  {path: 'customDirectiveValidation', component: CustomDirectiveValidationComponent}
+  {path: 'customDirectiveValidation', component: CustomDirectiveValidationComponent},
+  {path: 'product', component: ProductComponent},
+  {path: 'product-detail/:id', component: ProductDetailComponent},
+  {path: 'main-page', component: MainPageComponent, 
+    children:[ {path: 'sub-page-one', component: SubPageOneComponent},
+  {path: 'sub-page-two', component: SubPageTwoComponent},
+  {path: 'sub-page-three', component: SubPageThreeComponent},]}, 
+  {path:'**', component:PageNoTFound},
 ];
 
 @NgModule({
